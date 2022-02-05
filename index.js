@@ -3,16 +3,9 @@ const express = require ('express');
 const app = express ();
 
 //add listeners
-app.get('/',(req, res)=>{
-    res.send('<a href="/contact">Contact us</a><br><a href="/about">About us</a>');
-});
-
-app.get('/contact', (req, res)=>{
-    res.send('<h1>Contact us page</h1>');
-});
-
-app.get('/about', (req, res)=>{
-    res.send('<h1>About us page</h1>');
+app.get('/user/:username',(req, res)=>{
+    let user = req.params.username;
+    res.render('index.ejs', {username:user});
 });
 
 app.get('*', (req, res)=> {
