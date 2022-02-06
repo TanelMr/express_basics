@@ -13,10 +13,14 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
+
 //add listeners
-app.get('/user/:username',(req, res)=>{
-    let user = req.params.username;
-    res.render('index', {username:user});
+app.get('/questions',(req, res)=>{
+    let questions = [
+        {title: "Pick a number", user:"Kadi", votes : 10},
+        {title: "Pick another number", user: "Tom", votes: 10}
+    ]
+    res.render('index', {questions:questions});
 });
 //listen on port 3000
 app.listen(3000, ()=>{
