@@ -7,10 +7,18 @@
 <body>
 <h1>Welcome to EJS</h1>
 <%questions.forEach((question)=>{ %>
-    <h2><%= question['title']%></h2>
-    <p><%= question['user']%></p>
-    <p><%= question['votes']%></p>
+    <%if(question['user'].toLowerCase() === 'kadi') { %>
+        <h2><%= question['title']%></h2>
+        <p><%= question['user']%></p>
+        <p><%= question['votes']%></p>
+    <% } else { %>
+        <h1>Answers by other users:</h1>
+        <h2><%= question['title']%></h2>
+        <p><%= question['user']%></p>
+        <p><%= question['votes']%></p>
+    <% } %>
 
-<%});%>
+<% }); %>
+
 </body>
 </html>
